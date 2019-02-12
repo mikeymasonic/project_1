@@ -191,7 +191,7 @@ function draw() {
   // Star();
 
 
-if (millis() > time+400){
+if (millis() > time+80){
 
   for (let i =0; i < 15; i++){
     phaseChange[i]+= 1;
