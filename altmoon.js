@@ -7,6 +7,7 @@ function setup() {
   fingers.hide(); // by default video shows up in separate dom
   // element. hide it and draw it to the canvas
   // instead
+    fingers.loop(); 
 }
 
 function draw() {
@@ -16,6 +17,6 @@ function draw() {
   // filter('GRAY');
   // image(fingers, 150, 150); // draw a second copy to canvas
 
-  fingers.loop();
+
 }
 
