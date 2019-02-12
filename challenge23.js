@@ -3,6 +3,19 @@
  *targets. Each call to drawTarget() should specify the position, size, and number of
  *rings for each target.
 */
+
+// Write a sketch that includes a function of your own design that draws a moon. The function should take a arguments/parameters 
+// for size, color, and phase. You should be able to draw a number of moons with different phases, sizes and colors within your 
+// draw() function. Phase should be a number from 0 - 30, where 0 is a new moon, 15 is a full moon, and 30 is an almost new moon. 
+// Something roughly like this: http://rooftopweather.info/Moon%20Pictures.JPG
+// The moon doesn’t need to be detailed.. Or even look much like a moon. 
+// You can draw simple circle using ellipses, arc, curve, bezier, or whatever processing functions you like. 
+// You can use an image of a moon if you prefer.
+// One approach would be using two circles, one that covers up the moon (simulating the earth blocking the sun)... 
+// or you might think of some other approach I’m not thinking of.
+// Beyond that, the sketch can do whatever you want it to do! It should be deployed to github pages, 
+// and a link should be submitted to me through d2l.
+
 var numStars = 200; //How many stars do you want? 
 var stars = [numStars]; //array that holds our stars.
 var minStarSize = 1;
@@ -16,6 +29,9 @@ let angle = 0;
 let angle2 = 0;
 let xRadius = 100;
 let yRadius = 100;
+
+let xLoc1 = 200;
+let yLoc1 = 200;
 
 
 
@@ -53,22 +69,29 @@ function draw() {
   // drawTarget(mouseX*.65,mouseY*.75, 1, 100);
   // drawTarget(mouseX*.85,mouseY*.75, 1, 100);
 
-  let x1 = mouseX;
-  let y1 = mouseY;
-  let ix = width - mouseX;  // Inverse X
-  let iy = height - mouseY; // Inverse Y
+  // let x1 = mouseX;
+  // let y1 = mouseY;
+  // let ix = width - mouseX;  // Inverse X
+  // let iy = height - mouseY; // Inverse Y
 
 
 
 // middle circle thing
 
 
- strokeWeight(0);
-  fill(255, 150);
-  ellipse(x1, height/2, width/4, width/4);
-  glowSphere(mouseX, height/2, 3, 200);
-  fill(0);
-  ellipse(ix, height/2, width*.25, width*.25);
+  // strokeWeight(0);
+  // fill(255, 150);
+
+  // ellipse(x1, height/2, width/4, width/4);
+  // let moonPhase = map(mouseX, 0, width, 1, 30);
+
+  //function moon(x, y, radiusMult, rings, moonPhase)
+
+  moon(width/2, height/2, 3, 200, 15);
+  // moon(xLoc1, yLoc1, 1, 100, 20);
+
+  // fill(0);
+  // ellipse(ix, height/2, width*.25, width*.25);
 
 
 
@@ -194,22 +217,58 @@ function Star(x3,y3,r3){
 }
 
 
-function glowSphere(x, y, radiusMult, rings) {
+function moon(x, y, radiusMult, rings, moonPhase) {
   //this code draws one target with 8 rings
+
+  let mappedMoon = map(moonPhase, 1, 30, 0, windowWidth/4);
+  let x1 = mappedMoon + windowWidth/4 + mouseX;
+
+  let y1 = mouseY;
+  let ix = width - mappedMoon;  // Inverse X
+  let iy = height - mouseY; // Inverse Y
+
   let size = (width / 10)*radiusMult;
 
   let steps = size /rings;
 
   let grayvalues = 255/rings;
+
+  // let moonPhase = 0;
+
   // let x6 = windowWidth/2;
   // let y6 = windowHeight/2;
 
 
+  strokeWeight(0);
+  fill(255, 150);
+  ellipse(x, y, size - 25, size - 25);
+
+//     for (let i5 = 0; i5 < rings; i5++) {
+//     fill(255, 150);
+//     ellipse(x, y, size - i5*steps, size - i5 * steps);
+// }
 
     for (let i5 = 0; i5 < rings; i5++) {
     fill(i5*grayvalues);
     ellipse(x, y, size - i5*steps, size - i5 * steps);
-    //ellipse(xLoc, yLoc);
-}
 }
 
+
+//     for (let i5 = 0; i5 < rings; i5++) {
+//     fill(0);
+//     ellipse(x, y, size - i5*steps, size - i5 * steps);
+// }
+  fill(0);
+  ellipse(x1, y, size - 25, size - 25);
+
+  ellipse(xLoc1, yLoc1, size - 25, size - 25);
+
+//     for (let i7 = 0; i7 < rings; i7++) {
+//     strokeWeight(0);
+//     fill(255, 150);
+//     ellipse(x, y, size - i7*steps, size - i7 * steps);
+
+// }
+
+// middle circle thing
+}
