@@ -50,7 +50,7 @@ let ranStars = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(30);
+  frameRate(60);
 
   noStroke();
   noCursor();
@@ -61,7 +61,7 @@ function setup() {
     ranStars.push(new Jitter());
   }
 
-  for(let i = 0; i < 15; i++){ 
+  for(let i = 0; i < 16; i++){ 
     phaseChange[i] = i;
   }
 
@@ -153,6 +153,26 @@ function draw() {
   moonPhases(width*1.5, height*1.6+50, phaseChange[13], 175, 2, 200);
   moonPhases(width*1.8, height*1.6+50, phaseChange[14], 175, 2, 200);
 
+  // moonPhases(width/5+mouseX, height*1/4+50+mouseY, phaseChange[0], 175, 2, 200);
+  // moonPhases(width/2+mouseX, height*1/4+50+mouseY, phaseChange[1], 175, 2, 200);
+  // moonPhases(width+mouseX, height*1/4+50+mouseY, phaseChange[2], 175, 2, 200);
+  // moonPhases(width*1.5+mouseX, height*1/4+50+mouseY, phaseChange[3], 175, 2, 200);
+  // moonPhases(width*1.8+mouseX, height*1/4+50+mouseY, phaseChange[4], 175, 2, 200);
+
+  // moonPhases(width/5+mouseX, height+mouseY, phaseChange[5], 175, 2, 200);
+  // moonPhases(width/2+200+mouseX, height+mouseY, phaseChange[6], 175, 2, 200);
+  // moonPhases(width+mouseX, height+mouseY, phaseChange[7], 175, 2, 200);
+  // moonPhases(width*1.5-200+mouseX, height+mouseY, phaseChange[8], 175, 2, 200);
+  // moonPhases(width*1.8+mouseX, height+mouseY, phaseChange[9], 175, 2, 200);
+
+  // moonPhases(width/5+mouseX, height*1.6+50+mouseY, phaseChange[10], 175, 2, 200);
+  // moonPhases(width/2+mouseX, height*1.6+50+mouseY, phaseChange[11], 175, 2, 200);
+  // moonPhases(width+mouseX, height*1.6+50+mouseY, phaseChange[12], 175, 2, 200);
+  // moonPhases(width*1.5+mouseX, height*1.6+50+mouseY, phaseChange[13], 175, 2, 200);
+  // moonPhases(width*1.8+mouseX, height*1.6+50+mouseY, phaseChange[14], 175, 2, 200);
+
+
+
   // sphere(300, 200, 200);
 
   // drawTarget(x, y, radiusMult, rings);
@@ -171,7 +191,7 @@ function draw() {
   // Star();
 
 
-if (millis() > time+80){
+if (millis() > time+400){
 
   for (let i =0; i < 15; i++){
     phaseChange[i]+= 1;
@@ -632,3 +652,25 @@ class Jitter {
     ellipse(this.x, this.y, this.diameter, this.diameter);
   }
 }
+
+
+// function mousePressed() {
+//   setup();
+//   moonPhases(width/2+mouseX, height*1/4+50+mouseY, phaseChange[1], 175, 2, 200);
+//   moonPhases(width+mouseX, height*1/4+50+mouseY, phaseChange[2], 175, 2, 200);
+//   moonPhases(width*1.5+mouseX, height*1/4+50+mouseY, phaseChange[3], 175, 2, 200);
+//   moonPhases(width*1.8+mouseX, height*1/4+50+mouseY, phaseChange[4], 175, 2, 200);
+
+//   moonPhases(width/5+mouseX, height+mouseY, phaseChange[5], 175, 2, 200);
+//   moonPhases(width/2+200+mouseX, height+mouseY, phaseChange[6], 175, 2, 200);
+//   moonPhases(width+mouseX, height+mouseY, phaseChange[7], 175, 2, 200);
+//   moonPhases(width*1.5-200+mouseX, height+mouseY, phaseChange[8], 175, 2, 200);
+//   moonPhases(width*1.8+mouseX, height+mouseY, phaseChange[9], 175, 2, 200);
+
+//   moonPhases(width/5+mouseX, height*1.6+50+mouseY, phaseChange[10], 175, 2, 200);
+//   moonPhases(width/2+mouseX, height*1.6+50+mouseY, phaseChange[11], 175, 2, 200);
+//   moonPhases(width+mouseX, height*1.6+50+mouseY, phaseChange[12], 175, 2, 200);
+//   moonPhases(width*1.5+mouseX, height*1.6+50+mouseY, phaseChange[13], 175, 2, 200);
+//   moonPhases(width*1.8+mouseX, height*1.6+50+mouseY, phaseChange[14], 175, 2, 200);
+
+// }
