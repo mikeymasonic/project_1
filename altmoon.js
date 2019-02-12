@@ -15,8 +15,7 @@ function draw() {
   image(fingers, 1, 1); // draw the video frame to canvas
   // filter('GRAY');
   // image(fingers, 150, 150); // draw a second copy to canvas
+
+  fingers.loop();
 }
 
-function mousePressed() {
-  fingers.loop(); // set the video to loop and start playing
-}
