@@ -633,6 +633,7 @@ function drawTarget(x, y, radiusMult, rings) {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  setup();
 }
 
 class Jitter {
