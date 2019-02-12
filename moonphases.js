@@ -50,11 +50,11 @@ let ranStars = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(60);
+  frameRate(30);
 
   noStroke();
   noCursor();
-
+  smooth();
 
   background(10);
   for (let i = 0; i < 500; i++) {
@@ -132,6 +132,9 @@ function draw() {
 
 
 
+  // moonPhases(width/5, height*1/4+50, phaseChange0, 175, 2, 200);
+  // moonPhases(width/2, height*1/4+50, phaseChange1, 175, 2, 200);
+
   moonPhases(width/5, height*1/4+50, phaseChange[0], 175, 2, 200);
   moonPhases(width/2, height*1/4+50, phaseChange[1], 175, 2, 200);
   moonPhases(width, height*1/4+50, phaseChange[2], 175, 2, 200);
@@ -168,7 +171,7 @@ function draw() {
   // Star();
 
 
-if (millis() > time+100){
+if (millis() > time+80){
 
   for (let i =0; i < 15; i++){
     phaseChange[i]+= 1;
@@ -329,7 +332,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
   let steps = size /rings;
   let grayvalues = 255/rings;
 
-  if(phase==0){//NEW MOON
+  if(phase==15){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -339,7 +342,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI+PI,HALF_PI);
 
   }
-  if(phase==1){
+  if(phase==14){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -348,7 +351,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia*3/4, moonDia,HALF_PI,HALF_PI+PI);
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI+PI,HALF_PI);
   }
-  if(phase==2){
+  if(phase==13){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -357,7 +360,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia*2/4, moonDia,HALF_PI,HALF_PI+PI);
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI+PI,HALF_PI);
   }
-  if(phase==3){
+  if(phase==12){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -367,7 +370,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI+PI,HALF_PI);
   }
   
-  if(phase==4){//First Quarter
+  if(phase==11){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -376,7 +379,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI+PI,HALF_PI);
   }
   
-  if(phase==5){
+  if(phase==10){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -392,7 +395,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
 // }
   }
   
-  if(phase==6){
+  if(phase==9){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -408,7 +411,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
 // }
   }
   
-  if(phase==7){
+  if(phase==8){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -426,14 +429,14 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
   }
   
   //phase=8=fullmoon, do nothing
-  if(phase==8){
+  if(phase==7){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
     ellipse(skyX / 2, skyY / 2, moonDia-0.5, moonDia-0.5);
   }
   
-  if(phase==9){
+  if(phase==6){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -449,7 +452,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
 // }
   }
   
-  if(phase==10){
+  if(phase==5){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -465,7 +468,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
 // } 
   }
   
-  if(phase==11){
+  if(phase==4){//First Quarter
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -479,7 +482,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     // // ellipse(x, y, size - i*steps, size - i * steps);
     // arc(skyX/2, skyY/2,moonDia*2/4, moonDia, HALF_PI,HALF_PI+PI);
   }
-  if(phase==12){//Last Quarter
+  if(phase==3){//Last Quarter
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -487,7 +490,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     fill(10);
     arc(skyX/2, skyY/2,moonDia, moonDia,HALF_PI,HALF_PI+PI);
   }
-  if(phase==13){
+  if(phase==2){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -496,7 +499,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia*1/4, moonDia,HALF_PI+PI,HALF_PI);
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI,HALF_PI+PI);
   }
-  if(phase==14){
+  if(phase==1){
     drawTarget(skyX/2, skyY/2, 2, 200); 
     ellipseMode(CENTER);
     fill(255, 247, 220);
@@ -506,7 +509,7 @@ function moonPhases(skyX, skyY, phase, moonDia, radiusMult, rings){
     arc(skyX/2, skyY/2,moonDia*2/4, moonDia,HALF_PI+PI,HALF_PI);
     arc(skyX/2, skyY/2,moonDia, moonDia, HALF_PI,HALF_PI+PI);
   }
-  if(phase==15){
+  if(phase==0){//NEW MOON
     drawTarget(skyX/2, skyY/2, 2, 200);   
     ellipseMode(CENTER);
     fill(255, 247, 220);
