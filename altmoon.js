@@ -10,7 +10,8 @@ function setup() {
 }
 
 function draw() {
-  background(150);
+  noCursor();
+  background(10);
   image(fingers, 1, 1); // draw the video frame to canvas
   // filter('GRAY');
   // image(fingers, 150, 150); // draw a second copy to canvas
